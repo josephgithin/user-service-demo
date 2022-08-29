@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: user-service-config
+data:
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql-release.mysql-service.svc.cluster.local:3306/telus_db

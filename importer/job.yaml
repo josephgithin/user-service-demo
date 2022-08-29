@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: dataexporter
+  labels:
+    app: dataexporter
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: dataexporter
+              image: "josephjithin/dataexporter:latest"
+              envFrom:
+                - configMapRef:
+                    name: dataexporter-config
+              imagePullPolicy: Always
+              volumeMounts:
+              - name: google-cloud-key
+                mountPath: /var/secrets/google
+          volumes:
+            - name: google-cloud-key
+              secret:
+                secretName: service-account-credentials
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1

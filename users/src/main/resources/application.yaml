@@ -1,0 +1,27 @@
+spring:
+    datasource:
+        driver-class-name : com.mysql.cj.jdbc.Driver
+        username: root
+        password: zSXWr1nGlk
+        url: jdbc:mysql://127.0.0.1:3306/telus_db
+    mvc:
+        pathmatch:
+            matching-strategy: ant_path_matcher
+springdoc:
+    api-docs:
+        path: /api-docs
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+
+logging:
+    level:
+        org:
+            springframework:
+                       web: INFO
+            hibernate: ERROR
+        com:
+            mytv:
+                users: DEBUG

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dataexporter-config
+  labels:
+    app: dataexporter-config
+data:
+  DB_URL: "mysql+pymysql://root:zSXWr1nGlk@mysql-release.mysql-service.svc.cluster.local/telus_db"
+  TABLE_NAME: "users"
+  UPDATE_COLUMN: "updated_on"
+  INSERT_COLUMN: "added_on"
+  INTERVAL_IN_MINUTES: "5"
+  OUTPUT_PATH: "user_importer_data"
+  SECRET_PATH: "/var/secrets/google/key.json"
+  COLUMNS: "id,fname,lname,email,service"
+  INDEX_COLUMN: "id"
+  DEFAULT_STATE_DATE: "1970-01-01 00:00:00"
+  STORAGE_SCHEME: "gs"
