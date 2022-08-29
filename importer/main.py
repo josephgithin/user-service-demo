@@ -64,7 +64,8 @@ if __name__ == "__main__":
     insert_column = os.getenv("INSERT_COLUMN","added_on")
     interval_in_minutes = os.getenv("INTERVAL_IN_MINUTES",5)
     output_path = os.getenv("OUTPUT_PATH","user_importer_data")
-    secretpath = os.getenv("SECRET_PATH","user-importer-5924b8fe1a34.json")
+
+    secretpath = os.getenv("SECRET_PATH","dummy-key-user-importer-5924b8fe1a34.json")
     columns = os.getenv("COLUMNS","id,fname,lname,email,service")
     index = os.getenv("INDEX_COLUMN","id")
     default_state_date = os.getenv("DEFAULT_STATE_DATE","1970-01-01 00:00:00")
